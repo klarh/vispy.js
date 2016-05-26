@@ -3,8 +3,9 @@ var glir = require('./gloo.glir.js');
 function init_webgl(c) {
     // Get the DOM object, not the jQuery one.
     var canvas = c.$el.get(0);
-    c.gl = canvas.getContext("webgl") ||
-           canvas.getContext("experimental-webgl");
+    var extra_args = {preserveDrawingBuffer:true}
+    c.gl = canvas.getContext("webgl", extra_args) ||
+           canvas.getContext("experimental-webgl", extra_args);
 }
 
 
